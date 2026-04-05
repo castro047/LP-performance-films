@@ -9,24 +9,14 @@
     --Cor-padrao-hover: #ff3b2e;
     --Cor-fonte: #fff;
     --Cor-fonte-p: #333;
-    --Cor-btn-fonte: rgb(5, 5, 5);
+    --Cor-btn-fonte: #050505;
     --Cor-fonte-corpo: #333;
     --Cor-fonte-corpo-leve: #777;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-}
-
-.container {
-    max-width: 1400px;
-    margin: auto;
-    padding-left: 25px;
-    padding-right: 25px;
-}
-
-p {
-    color: var(--Cor-fonte-p);
+    background: #f5f5f5;
 }
 
 /* NAVBAR */
@@ -34,8 +24,16 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 15px 30px;
     background: var(--Cor-padrao);
+    flex-wrap: nowrap;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    display: block;
 }
 
 nav {
@@ -56,19 +54,19 @@ nav ul li a {
     font-size: 18px;
 }
 
-.logo img {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-}
-
 .menu-celular {
     width: 28px;
     display: none;
     cursor: pointer;
 }
 
-/* ESTRUTURA GERAL */
+/* ESTRUTURA */
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 0 25px;
+}
+
 .linha {
     display: flex;
     align-items: center;
@@ -86,7 +84,7 @@ nav ul li a {
     padding: 0 25px;
 }
 
-/* COL-1 = CATEGORIAS */
+/* CATEGORIAS */
 .col-1 {
     flex-basis: 30%;
     min-width: 250px;
@@ -96,10 +94,10 @@ nav ul li a {
 .col-1 img {
     width: 100%;
     object-fit: cover;
-    object-position: center;
+    border-radius: 8px;
 }
 
-/* COL-2 = PRODUTOS */
+/* PRODUTOS */
 .col-2 {
     flex-basis: 25%;
     min-width: 200px;
@@ -109,20 +107,19 @@ nav ul li a {
 }
 
 .col-2:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .col-2 img {
     width: 100%;
-    object-fit: cover;
-    object-position: center;
+    object-fit: contain;
 }
 
 .col-2 p {
     font-size: 14px;
 }
 
-/* COL-3 = MARCAS */
+/* MARCAS */
 .marcas {
     margin: 100px auto;
 }
@@ -141,17 +138,12 @@ nav ul li a {
     filter: grayscale(0%);
 }
 
-/* COL-4 = RODAPÉ */
+/* RODAPÉ */
 .rodape {
     background: var(--Cor-btn-fonte);
     color: var(--Cor-fonte);
     padding: 60px 0 20px;
     font-size: 14px;
-}
-
-.rodape h3,
-.rodape p {
-    color: var(--Cor-fonte);
 }
 
 .col-4 {
@@ -165,7 +157,31 @@ nav ul li a {
     margin-bottom: 20px;
 }
 
-/* TÍTULOS */
+.rodape h3,
+.rodape p {
+    color: var(--Cor-fonte);
+}
+
+.app-logo {
+    margin-top: 20px;
+}
+
+.app-logo img {
+    width: 140px;
+}
+
+.rodape hr {
+    border: none;
+    height: 1px;
+    background: var(--Cor-fonte);
+    margin: 20px 0;
+}
+
+.direitos {
+    text-align: center;
+}
+
+/* TÍTULO */
 .titulo {
     position: relative;
     line-height: 60px;
@@ -195,72 +211,50 @@ h4 {
     color: var(--Cor-padrao);
 }
 
-/* APP LOGO */
-.app-logo {
-    margin-top: 20px;
-}
-
-.app-logo img {
-    width: 140px;
-}
-
-/* RODAPÉ FINAL */
-.rodape hr {
-    border: none;
-    height: 1px;
-    background: var(--Cor-fonte);
-    margin: 20px 0;
-}
-
-.direitos {
-    text-align: center;
-}
-
 ul {
     list-style: none;
 }
 
-/* RESPONSIVO */
+/* TABLET */
 @media only screen and (max-width: 800px) {
     nav ul {
-        display: block;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        background: #000;
-        width: 100%;
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.5s;
+        gap: 20px;
     }
 
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    .menu-celular {
-        display: block;
+    .logo img {
+        width: 60px;
+        height: 60px;
     }
 }
 
+/* MOBILE / IPHONE */
 @media only screen and (max-width: 600px) {
-    /* CATEGORIAS menores */
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    nav ul {
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    /* categorias menores */
     .col-1 {
         flex-basis: 48%;
         max-width: 48%;
-        margin-bottom: 10px;
     }
 
     .col-1 img {
-        width: 100%;
         height: 120px;
         object-fit: cover;
-        border-radius: 8px;
     }
 
-    /* PRODUTOS no padrão Mercado Livre */
+    /* produtos estilo mercado livre */
     .corpo-categorias .linha {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -278,30 +272,25 @@ ul {
     }
 
     .col-2 img {
-        width: 100%;
         height: 150px;
         object-fit: contain;
     }
 
     .col-2 h4 {
         font-size: 13px;
-        margin: 8px 0;
         min-height: 35px;
     }
 
     .col-2 p {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: bold;
-        color: #333;
     }
 
-    /* MARCAS */
     .col-3 {
         flex-basis: 48%;
         max-width: 48%;
     }
 
-    /* RODAPÉ */
     .col-4 {
         flex-basis: 100%;
     }
