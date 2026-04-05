@@ -1,0 +1,308 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --Cor-padrao: #ff523b;
+    --Cor-padrao-hover: #ff3b2e;
+    --Cor-fonte: #fff;
+    --Cor-fonte-p: #333;
+    --Cor-btn-fonte: rgb(5, 5, 5);
+    --Cor-fonte-corpo: #333;
+    --Cor-fonte-corpo-leve: #777;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+p {
+    color: var(--Cor-fonte-p);
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: var(--Cor-padrao);
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.logo img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.menu-celular {
+    width: 28px;
+    display: none;
+    cursor: pointer;
+}
+
+/* ESTRUTURA GERAL */
+.linha {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.categorias {
+    margin: 70px 0;
+}
+
+.corpo-categorias {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 25px;
+}
+
+/* COL-1 = CATEGORIAS */
+.col-1 {
+    flex-basis: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+
+.col-1 img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* COL-2 = PRODUTOS */
+.col-2 {
+    flex-basis: 25%;
+    min-width: 200px;
+    padding: 10px;
+    margin-bottom: 50px;
+    transition: 0.3s;
+}
+
+.col-2:hover {
+    transform: scale(1.1);
+}
+
+.col-2 img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.col-2 p {
+    font-size: 14px;
+}
+
+/* COL-3 = MARCAS */
+.marcas {
+    margin: 100px auto;
+}
+
+.col-3 {
+    width: 160px;
+}
+
+.col-3 img {
+    width: 100%;
+    cursor: pointer;
+    filter: grayscale(100%);
+}
+
+.col-3 img:hover {
+    filter: grayscale(0%);
+}
+
+/* COL-4 = RODAPÉ */
+.rodape {
+    background: var(--Cor-btn-fonte);
+    color: var(--Cor-fonte);
+    padding: 60px 0 20px;
+    font-size: 14px;
+}
+
+.rodape h3,
+.rodape p {
+    color: var(--Cor-fonte);
+}
+
+.col-4 {
+    min-width: 250px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.col-4 img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+/* TÍTULOS */
+.titulo {
+    position: relative;
+    line-height: 60px;
+    margin: 0 auto 80px;
+    text-align: center;
+    color: var(--Cor-fonte-corpo);
+}
+
+.titulo::after {
+    content: "";
+    background-color: var(--Cor-padrao);
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h4 {
+    color: var(--Cor-fonte-corpo);
+    font-weight: normal;
+}
+
+.classificacao ion-icon {
+    color: var(--Cor-padrao);
+}
+
+/* APP LOGO */
+.app-logo {
+    margin-top: 20px;
+}
+
+.app-logo img {
+    width: 140px;
+}
+
+/* RODAPÉ FINAL */
+.rodape hr {
+    border: none;
+    height: 1px;
+    background: var(--Cor-fonte);
+    margin: 20px 0;
+}
+
+.direitos {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+/* RESPONSIVO */
+@media only screen and (max-width: 800px) {
+    nav ul {
+        display: block;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: #000;
+        width: 100%;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.5s;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .menu-celular {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /* CATEGORIAS menores */
+    .col-1 {
+        flex-basis: 48%;
+        max-width: 48%;
+        margin-bottom: 10px;
+    }
+
+    .col-1 img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    /* PRODUTOS no padrão Mercado Livre */
+    .corpo-categorias .linha {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .col-2 {
+        width: 100%;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        margin: 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .col-2 img {
+        width: 100%;
+        height: 150px;
+        object-fit: contain;
+    }
+
+    .col-2 h4 {
+        font-size: 13px;
+        margin: 8px 0;
+        min-height: 35px;
+    }
+
+    .col-2 p {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* MARCAS */
+    .col-3 {
+        flex-basis: 48%;
+        max-width: 48%;
+    }
+
+    /* RODAPÉ */
+    .col-4 {
+        flex-basis: 100%;
+    }
+}
