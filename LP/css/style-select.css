@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* REMOVE SUBLINHADO */
+a,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+}
+
+/* VARIÁVEIS */
+:root {
+    --Cor-padrao: #ff523b;
+    --Cor-padrao-hover: #ff3b2e;
+    --Cor-fonte: #fff;
+    --Cor-fonte-p: #333;
+}
+
+/* 🔥 FAZ O FOOTER IR PRO FINAL */
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: -apple-system, 'Poppins', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #f5f5f5;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* NAVBAR */
+.navbar {
+    background: var(--Cor-padrao);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* LOGO */
+.logo h1 {
+    font-family: 'Eater', cursive;
+    color: white;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+/* MENU DESKTOP */
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    opacity: 0.8;
+}
+
+/* BOTÃO MOBILE (ESCONDIDO NO DESKTOP) */
+.menu-celular {
+    display: none;
+    width: 28px;
+    cursor: pointer;
+    filter: brightness(0) invert(1);
+}
+
+/* ================= PRODUTO ================= */
+
+.produto-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    gap: 40px;
+
+    flex: 1; /* 🔥 empurra footer */
+}
+
+/* IMAGEM */
+.produto-img {
+    flex: 1;
+}
+
+.produto-img img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* INFO */
+.produto-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* TITULO */
+.produto-info h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+/* TEXTO */
+.produto-info p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* LISTA */
+.lista-beneficios {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+/* BOTÃO WHATS */
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    width: fit-content;
+    transition: 0.3s;
+}
+
+.btn-whatsapp:hover {
+    background: #1ebe5d;
+}
+
+/* ================= RODAPÉ ================= */
+
+.rodape {
+    background: #1a1a1a;
+    color: white;
+    padding: 50px 0 20px;
+}
+
+.rodape .linha {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.col-4 {
+    display: flex;
+    flex-direction: column;
+}
+
+.col-4 h3 {
+    margin-bottom: 15px;
+}
+
+.col-4 p,
+.col-4 li {
+    color: #ccc;
+    font-size: 14px;
+    list-style: none;
+}
+
+.col-4 ul {
+    padding: 0;
+}
+
+.col-4 a {
+    color: #ccc;
+}
+
+.col-4 a:hover {
+    color: #fff;
+}
+
+.rodape hr {
+    margin: 20px 0;
+    border: none;
+    height: 1px;
+    background: #333;
+}
+
+.direitos {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    /* MENU MOBILE */
+    nav ul {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: var(--Cor-padrao);
+
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    nav ul.ativo {
+        max-height: 200px;
+    }
+
+    nav ul li {
+        text-align: center;
+        padding: 12px;
+    }
+
+    /* MOSTRA BOTÃO */
+    .menu-celular {
+        display: block;
+    }
+
+    /* PRODUTO */
+    .produto-container {
+        flex-direction: column;
+    }
+
+    /* RODAPÉ */
+    .rodape .linha {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
